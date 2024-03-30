@@ -2,7 +2,6 @@ import axios from 'axios';
 
 
 axios.defaults.baseURL = process.env.REACT_APP_API_SERVER;
-
 axios.interceptors.response.use(
   response => response,
   error => {
@@ -16,6 +15,7 @@ axios.interceptors.response.use(
 );
 export default {
   getTasks: async () => {
+    console.log(axios.defaults.baseURL);
     const result = await axios.get(`/items`)
     return result.data;
   },
