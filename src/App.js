@@ -3,7 +3,7 @@ import service from './service.js';
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState([{id:1,name:"hard code",isComplete:true}]);
+  const [todos, setTodos] = useState([]);
 
   async function getTodos() {
     const todos = await service.getTasks();
@@ -12,20 +12,19 @@ function App() {
 
   async function createTodo(e) {
     e.preventDefault();
-    console.log("createTodo",e);
     await service.addTask(newTodo);
-    setNewTodo("");//clear input
-    await getTodos();//refresh tasks list (in order to see the new one)
+    setNewTodo(""); // Clear input
+    await getTodos(); // Refresh tasks list
   }
 
   async function updateCompleted(todo, isComplete) {
     await service.setCompleted(todo.id, isComplete);
-    await getTodos();//refresh tasks list (in order to see the updated one)
+    await getTodos(); // Refresh tasks list
   }
 
   async function deleteTodo(id) {
     await service.deleteTask(id);
-    await getTodos();//refresh tasks list
+    await getTodos(); // Refresh tasks list
   }
 
   useEffect(() => {
@@ -55,7 +54,7 @@ function App() {
           })}
         </ul>
       </section>
-    </section >
+    </section>
   );
 }
 
