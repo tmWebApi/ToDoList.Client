@@ -16,7 +16,7 @@ axios.interceptors.response.use(
 export default {
   getTasks: async () => {
     console.log("get todo",axios);
-    const result = await axios.get(`/items`)
+    const result = await axios.get(`https://todolistserver-ai4z.onrender.com/items`)
     return result.data;
   },
 
