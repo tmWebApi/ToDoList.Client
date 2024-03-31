@@ -12,6 +12,7 @@ function App() {
 
   async function createTodo(e) {
     e.preventDefault();
+    console.log("createTodo",e);
     await service.addTask(newTodo);
     setNewTodo("");//clear input
     await getTodos();//refresh tasks list (in order to see the new one)
@@ -37,7 +38,6 @@ function App() {
         <h1>todos</h1>
         <form onSubmit={createTodo}>
           <input className="new-todo" placeholder="Well, let's take on the day" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
-        <input />
         </form>
       </header>
       <section className="main" style={{ display: "block" }}>

@@ -22,6 +22,7 @@ export default {
 
   addTask: async (name) => {
     const result = await axios.post(`/items`, { "name": name , "isComplete": false })
+    console.log("res",result,axios);
     return result;
   },
 
