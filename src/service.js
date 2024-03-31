@@ -15,7 +15,7 @@ axios.interceptors.response.use(
 );
 export default {
   getTasks: async () => {
-    console.log(axios.defaults.baseURL);
+    console.log("get todo",axios);
     const result = await axios.get(`/items`)
     return result.data;
   },
